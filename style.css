@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +7,12 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Press Start 2P', cursive;
+    background-image: url(./resources/dark_souls_bg_gif.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 .container {
@@ -14,55 +20,91 @@ body {
     margin: auto;
     overflow: hidden;
     padding: 0 20px;
-    /* border: 1px solid #000; */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.header {
+    margin-top: 20px;
+    text-align: center;
 }
 
 .content {
-    margin-top: 20px;
+    margin-top: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid #000; */
     flex-direction: column;
-    padding: 20px;
-}
-
-#content-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    padding: 20px 0px;
 }
 
 .choices {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 300px;
+    width: 400px;
+    height: 100px;
     margin-top: 20px;
 }
 
 .choices button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #000;
-    color: #fff;
+    font-size: 18px;
+    padding: 8px 20px;
     cursor: pointer;
     border: 0 none;
-    margin-top: 40px;
     border-radius: 4px;
-    box-shadow: #000 2px 2px 2px;
-    transition: all 0.3s ease;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 .choices button:hover {
-    background-color: #f4f4f4;
+    border: 1px solid #000;
     color: #000;
+    transform: scale(1.1);
 }
 
-#result, #userOption {
-    margin-top: 40px;
+.choices img {
+    width: 100px;
+    height: 80px;
+}
+
+
+#userOption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #07e346;
+    margin-top: 20px;
+}
+
+#computerOption {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #f1f2f4;
+}
+
+#result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 80px;
     font-size: 1rem;
-    padding: 10px;
+}
+
+#restart {
+    margin-top: 80px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0 none;
+    border-radius: 4px;
+}
+
+#restart img {
+    width: 40px;
+    height: 40px;
 }
