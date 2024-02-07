@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    max-width: 1170px;
+    /* max-width: 1170px; */
     margin: auto;
     overflow: hidden;
     padding: 0 20px;
@@ -31,6 +31,11 @@ body {
 .header {
     margin-top: 20px;
     text-align: center;
+}
+
+.header h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
 }
 
 .content {
@@ -68,43 +73,39 @@ body {
     transform: scale(1.1);
 }
 
-.choices img {
-    width: 100px;
-    height: 80px;
-}
-
-
 #userOption {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
-    color: #07e346;
+    color: #ffb703;
     margin-top: 20px;
 }
 
 #computerOption {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-top: 20px;
-    color: #f1f2f4;
+    color: #fb8500;
 }
 
 #result {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 80px;
+    margin-top: 60px;
     font-size: 1rem;
+    text-transform: uppercase;
 }
 
 #restart {
-    margin-top: 80px;
+    margin-top: 40px;
     padding: 5px 10px;
     font-size: 1rem;
     cursor: pointer;
     border: 0 none;
     border-radius: 4px;
+    background-color: none;
 }
 
 #restart img {
-    width: 40px;
-    height: 40px;
-}
+    width: 30px;
+    height: 30px;
+} 

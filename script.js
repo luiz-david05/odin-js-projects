@@ -6,9 +6,9 @@ const computerOption = document.getElementById("computerOption");
 const result = document.getElementById("result");
 const winnerResult = document.getElementById("winner");
 const reloadButton = document.getElementById("restart");
+const numberRounds = document.getElementById('numberRounds')
 const score = document.getElementById("score");
-let playerWins,
-    computerWins = 0;
+let playerWins = 0, computerWins = 0, numRounds = 5;
 
 const getComputerChoice = () => {
     const choices = ["rock", "paper", "scissor"];
@@ -17,12 +17,17 @@ const getComputerChoice = () => {
 };
 
 const playRound = (playerSelection, computerSelection) => {
+    numRounds--;
+    if (numRounds == 0) {
+        winnerResult.textContent = `Winner: ${winner}`
+    }
+
     userOption.textContent = `User option: ${playerSelection}`;
     computerOption.textContent = `Computer option: ${computerSelection}`;
 
     result.textContent = "";
     if (playerSelection === computerSelection) {
-        result.style = "color: orange";
+        result.style = "color: white";
         result.textContent = "It's a tie!";
     } else if (
         (playerSelection === "scissor" && computerSelection === "paper") ||
@@ -37,6 +42,11 @@ const playRound = (playerSelection, computerSelection) => {
         result.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerWins++;
     }
+
+    const winner = playerWins > computerWins ? 'User': 'Computer'
+    score.textContent = `User: ${playerWins} | Computer: ${computerWins}`
+    numberRounds.textContent = `Number of rounds: ${numRounds}`
+
 };
 
 function playGame() {
@@ -58,18 +68,12 @@ function playGame() {
         playRound(playerChoice, computerChoice);
     });
 }
-let nRounds = 5
-score.textContent = `Number of Rounds: ${nRounds}`
-
-for (let i = 5; i > 0; i--) {
-    playGame()
-    nRounds -= 1
-}
-
-
+playGame()
 
 reloadButton.addEventListener("click", () => {
     userOption.textContent = ``;
     computerOption.textContent = ``;
     result.textContent = "";
+    score.textContent = '';
+    numberRounds.textContent = ''
 });
