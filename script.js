@@ -6,22 +6,35 @@ const computerOption = document.getElementById("computerOption");
 const result = document.getElementById("result");
 const winnerResult = document.getElementById("winner");
 const reloadButton = document.getElementById("restart");
-const numberRounds = document.getElementById('numberRounds')
-const score = document.getElementById("score");
-let playerWins = 0, computerWins = 0, numRounds = 5;
+const numberRounds = document.getElementById("numberRounds");
+const startButton = document.getElementById("start")
 
+const score = document.getElementById("score");
+let playerWins = 0,
+    computerWins = 0
+
+reloadButton.style.visibility = "hidden";
+rockButton.style.visibility = 'hidden'
+paperButton.style.visibility = 'hidden'
+scissorButton.style.visibility = 'hidden'
+
+startButton.addEventListener('click', () => {
+    startButton.style.visibility = 'hidden'
+    rockButton.style.visibility = 'visible'
+    paperButton.style.visibility = 'visible'
+    scissorButton.style.visibility = 'visible'
+})
+
+
+// function to generate random choices to computer
 const getComputerChoice = () => {
     const choices = ["rock", "paper", "scissor"];
     const choice = choices[Math.floor(Math.random() * choices.length)];
     return choice;
 };
 
+// function on the logic of game
 const playRound = (playerSelection, computerSelection) => {
-    numRounds--;
-    if (numRounds == 0) {
-        winnerResult.textContent = `Winner: ${winner}`
-    }
-
     userOption.textContent = `User option: ${playerSelection}`;
     computerOption.textContent = `Computer option: ${computerSelection}`;
 
@@ -42,38 +55,63 @@ const playRound = (playerSelection, computerSelection) => {
         result.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerWins++;
     }
+    // show when variables update
+    score.textContent = `Player: ${playerWins} | Computer: ${computerWins}`;
 
-    const winner = playerWins > computerWins ? 'User': 'Computer'
-    score.textContent = `User: ${playerWins} | Computer: ${computerWins}`
-    numberRounds.textContent = `Number of rounds: ${numRounds}`
+    if (playerWins === 5 || computerWins === 5) {
+        const winner = playerWins > computerWins ? "User" : "Computer";
+        reloadButton.style.visibility = "visible";
 
+        if (winner === "User") {
+            winnerResult.textContent = `Congratulations, you win!`;
+            document.getElementById('youWinSound').play()
+        } else {
+            winnerResult.textContent = `You lose, try again.`;
+            document.getElementById('youLoseSound').play()
+        }
+
+        rockButton.disabled = true
+        paperButton.disabled = true
+        scissorButton.disabled = true
+    }
 };
 
+// function to play the game and event listeners on buttons when user click
 function playGame() {
     rockButton.addEventListener("click", () => {
         const playerChoice = "rock";
         const computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
     });
-    
+
     paperButton.addEventListener("click", () => {
         const playerChoice = "paper";
         const computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
     });
-    
+
     scissorButton.addEventListener("click", () => {
         const playerChoice = "scissor";
         const computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
     });
-}
-playGame()
 
-reloadButton.addEventListener("click", () => {
-    userOption.textContent = ``;
-    computerOption.textContent = ``;
-    result.textContent = "";
-    score.textContent = '';
-    numberRounds.textContent = ''
-});
+    reloadButton.addEventListener("click", () => {
+        score.textContent = "";
+        userOption.textContent = "";
+        computerOption.textContent = "";
+        result.textContent = "";
+        playerWins = 0;
+        computerWins = 0;
+        reloadButton.style.visibility = "hidden";
+        winnerResult.textContent = "";
+        rockButton.disabled = false
+        paperButton.disabled = false
+        scissorButton.disabled = false
+        rockButton.style.visibility = 'hidden'
+        paperButton.style.visibility = 'hidden'
+        scissorButton.style.visibility = 'hidden'
+        startButton.style.visibility = 'visible'
+    });
+}
+playGame();

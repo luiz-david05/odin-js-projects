@@ -38,6 +38,27 @@ body {
     letter-spacing: 0.2rem;
 }
 
+#start {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0 none;
+    border-radius: 4px;
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #f1f1f1;
+    background-color: #010101;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#start:hover {
+    background-color: #fff;
+    color: #000;
+}
+
 .content {
     margin-top: 60px;
     display: flex;
@@ -74,14 +95,14 @@ body {
 }
 
 #userOption {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #ffb703;
     margin-top: 20px;
 }
 
 #computerOption {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     margin-top: 20px;
     color: #fb8500;
@@ -91,14 +112,14 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     margin-top: 60px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-transform: uppercase;
 }
 
 #restart {
     margin-top: 40px;
     padding: 5px 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     border: 0 none;
     border-radius: 4px;

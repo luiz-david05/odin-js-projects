@@ -11,11 +11,12 @@
     <div class="container">
         <div class="header">
             <h1>Rock Paper Scissors</h1>
+            <button id="start">press start!</button>
         <div class="content">
             <p id="numberRounds"></p>
             <p id="score"></p>
             <br>
-            <p>Choose your move:</p>
+            <!-- <p>Choose your move:</p> -->
             <div class="choices">
                 <button id="rock">Rock</button>
                 <button id="paper">Paper</button>
@@ -27,6 +28,8 @@
             <br>
             <p id="winner"></p>
             <button id="restart"><img src="./resources/restart_alt_FILL0_wght400_GRAD0_opsz24.svg" alt="reload button"></button>
+            <audio volume="0.2" id="youWinSound" src="./resources/sounds/You Win ( Street Fighter ) Sound Effect (320 kbps).mp3"></audio>
+            <audio volume="0.5" id="youLoseSound" src="./resources/sounds/YOU LOSE (192 kbps).mp3"></audio>
         </div>
         </div>
     </div>
