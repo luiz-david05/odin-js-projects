@@ -129,4 +129,11 @@ body {
 #restart img {
     width: 30px;
     height: 30px;
-} 
+}
+
+#winner {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}

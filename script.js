@@ -63,7 +63,7 @@ const playRound = (playerSelection, computerSelection) => {
         reloadButton.style.visibility = "visible";
 
         if (winner === "User") {
-            winnerResult.textContent = `Congratulations, you win!`;
+            winnerResult.textContent = `You win!`;
             document.getElementById('youWinSound').play()
         } else {
             winnerResult.textContent = `You lose, try again.`;
