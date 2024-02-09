@@ -25,7 +25,6 @@ startButton.addEventListener('click', () => {
     scissorButton.style.visibility = 'visible'
 })
 
-
 // function to generate random choices to computer
 const getComputerChoice = () => {
     const choices = ["rock", "paper", "scissor"];
